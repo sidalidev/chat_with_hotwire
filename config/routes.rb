@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  resources :rooms
+  resources :rooms do
+    # connects messages and rooms together
+    resources :messages
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
