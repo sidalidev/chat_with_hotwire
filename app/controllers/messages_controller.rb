@@ -7,9 +7,10 @@ class MessagesController < ApplicationController
 
   # POST /messages or /messages.json
   def create
-    @message = @room.messages.create message_params
+    @message = @room.messages.create!(message_params)
 
     respond_to do |format|
+      format.turbo_stream
       format.html { redirect_to @room }
     end
   end
